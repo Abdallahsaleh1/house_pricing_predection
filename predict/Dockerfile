@@ -1,5 +1,5 @@
 FROM python:3
-WORKDIR /home/abdallah/Desktop/ml_assignment/predict
+WORKDIR /ml_assignment/predict
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
