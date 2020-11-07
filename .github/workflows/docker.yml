@@ -20,10 +20,21 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: docker login
+        env: 
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       # Runs a single command using the runners shell
       - name: docker build 
         run: |
-          docker build -t 11819264/catnip
+          docker build "./predict predict"-n ${{secrets.DOCKER_USERNAME}}/flask:latest
+          
+      - name: docker push
+        run: |
+          docker push ${{secrets.DOCKER_USERNAME}}/flask:latest
 
 
