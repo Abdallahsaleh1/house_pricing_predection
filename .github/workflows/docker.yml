@@ -31,10 +31,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: docker build 
         run: |
-          docker build  ./predict/ -n 11819264/flask
+          docker build  ./predict/ -t 11819264/catnip
           
       - name: docker push
         run: |
-          docker push $11819264/flask
+          docker push $11819264/catnip
 
 
