@@ -31,10 +31,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: docker build 
         run: |
-          docker build  ./predict -n ${{secrets.DOCKER_USERNAME}}/flask:latest
+          docker build  ./predict/ -n 11819264/flask
           
       - name: docker push
         run: |
-          docker push ${{secrets.DOCKER_USERNAME}}/flask:latest
+          docker push $11819264/flask
 
 
