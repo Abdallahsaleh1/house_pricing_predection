@@ -31,6 +31,6 @@ jobs:
             arg
  
         env:
-          arg: "./predict"
+          arg: ./predict 
 
  
